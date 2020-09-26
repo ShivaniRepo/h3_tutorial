@@ -4,12 +4,16 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import com.virtualpairprogrammer.isbntools.ValidateISBN;
+
 class ValidateISBNTest {
 	
 	@Test
 	public void CheckAValidISBN()
 	{
-		fail();
+		ValidateISBN validator = new ValidateISBN();
+		boolean result = validator.CheckISBN( 140449116 );
+		assertTrue(result);
 	}
 
 	//@Test
