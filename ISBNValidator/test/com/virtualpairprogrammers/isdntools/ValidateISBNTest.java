@@ -43,6 +43,17 @@ class ValidateISBNTest {
 			boolean result = validator.CheckISBN( "123456789" );
 		});
 	}
+	
+	
+	@Test
+	public void nonNumericISBNAreNotAllowed()
+	{
+		ValidateISBN validator = new ValidateISBN();
+		
+		Assertions.assertThrows(NumberFormatException.class, () -> {
+			boolean result = validator.CheckISBN( "helloworld!" );
+		});
+	}
 
 	//@Test
 	//void test() {
