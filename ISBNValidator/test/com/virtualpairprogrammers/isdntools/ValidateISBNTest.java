@@ -11,7 +11,7 @@ import com.virtualpairprogrammer.isbntools.ValidateISBN;
 class ValidateISBNTest {
 	
 	@Test
-	public void CheckAValidISBN()
+	public void CheckAValid10DigitISBN()
 	{
 		ValidateISBN validator = new ValidateISBN();
 		boolean result = validator.CheckISBN( "0140449116" );
@@ -23,8 +23,22 @@ class ValidateISBNTest {
 		assertTrue("second value", result);
 	}
 	
+	
 	@Test
-	public void ISBNNumbersEndingInAnXAreValid()
+	public void CheckAValid13DigitISBN()
+	{
+		ValidateISBN validator = new ValidateISBN();
+		boolean result = validator.CheckISBN( "9781853260087" );
+		assertTrue("first value", result);
+		
+		result = validator.CheckISBN( "9781853267338" );
+		assertTrue("second value", result);
+
+	}
+	
+	
+	@Test
+	public void TenDigitISBNNumbersEndingInAnXAreValid()
 	{
 		ValidateISBN validator = new ValidateISBN();
 		boolean result = validator.CheckISBN( "012000030X" );
@@ -32,7 +46,7 @@ class ValidateISBNTest {
 	}
 	
 	@Test
-	public void CheckAnInvalidISBN()
+	public void CheckAnInvalid10DigitISBN()
 	{
 		ValidateISBN validator = new ValidateISBN();
 		boolean result = validator.CheckISBN( "0140449117" );
@@ -40,6 +54,16 @@ class ValidateISBNTest {
 		assertFalse(result);
 	}
 
+	@Test
+	public void CheckAnInvalid13DigitISBN()
+	{
+		ValidateISBN validator = new ValidateISBN();
+		boolean result = validator.CheckISBN( "9781853267336" );
+		
+		assertFalse(result);
+	}
+
+	
 	
 	//This implies that if this exception is thrown the test will pass else the test will fail.
 	//@Test( expected = NumberFormatException.class ) //tThis is for JUnit4
@@ -63,6 +87,7 @@ class ValidateISBNTest {
 		});
 	}
 
+	
 	//@Test
 	//void test() {
 	//	fail("Not yet implemented");
