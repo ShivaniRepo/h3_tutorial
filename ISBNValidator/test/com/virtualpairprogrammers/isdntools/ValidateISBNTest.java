@@ -24,6 +24,14 @@ class ValidateISBNTest {
 	}
 	
 	@Test
+	public void ISBNNumbersEndingInAnXAreValid()
+	{
+		ValidateISBN validator = new ValidateISBN();
+		boolean result = validator.CheckISBN( "012000030X" );
+		assertTrue(result);
+	}
+	
+	@Test
 	public void CheckAnInvalidISBN()
 	{
 		ValidateISBN validator = new ValidateISBN();
