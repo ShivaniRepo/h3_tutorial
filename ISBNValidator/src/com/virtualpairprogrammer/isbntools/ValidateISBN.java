@@ -2,7 +2,11 @@ package com.virtualpairprogrammer.isbntools;
 
 public class ValidateISBN {
 
-	public boolean CheckISBN(String isbn) {
+	public boolean CheckISBN(String isbn) 
+	{
+		if( isbn.length() != 10 )
+			throw new NumberFormatException("ISBN number must be 10 digits long" );
+		
 		int total = 0;
 		
 		for( int i=0; i < 10; i++)

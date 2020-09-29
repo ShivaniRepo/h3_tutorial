@@ -3,6 +3,7 @@ package com.virtualpairprogrammers.isdntools;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import com.virtualpairprogrammer.isbntools.ValidateISBN;
@@ -32,7 +33,16 @@ class ValidateISBNTest {
 	}
 
 	
-	
+	//This implies that if this exception is thrown the test will pass else the test will fail.
+	//@Test( expected = NumberFormatException.class ) //tThis is for JUnit4
+	@Test
+	public void nineDigitISBNAreNotAllowed()
+	{
+		ValidateISBN validator = new ValidateISBN();
+		Assertions.assertThrows(NumberFormatException.class, () -> {
+			boolean result = validator.CheckISBN( "123456789" );
+		});
+	}
 
 	//@Test
 	//void test() {
