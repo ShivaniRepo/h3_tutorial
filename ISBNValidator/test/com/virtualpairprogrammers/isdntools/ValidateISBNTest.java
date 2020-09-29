@@ -1,5 +1,6 @@
 package com.virtualpairprogrammers.isdntools;
 
+import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
@@ -12,9 +13,26 @@ class ValidateISBNTest {
 	public void CheckAValidISBN()
 	{
 		ValidateISBN validator = new ValidateISBN();
-		boolean result = validator.CheckISBN( 140449116 );
-		assertTrue(result);
+		boolean result = validator.CheckISBN( "0140449116" );
+		//assertTrue(result);
+		assertTrue("first value", result);
+		
+		result = validator.CheckISBN("0140177396" );
+		//assertTrue(result);
+		assertTrue("second value", result);
 	}
+	
+	@Test
+	public void CheckAnInvalidISBN()
+	{
+		ValidateISBN validator = new ValidateISBN();
+		boolean result = validator.CheckISBN( "0140449117" );
+		//fail();
+		assertFalse(result);
+	}
+
+	
+	
 
 	//@Test
 	//void test() {
